@@ -258,47 +258,55 @@ function CallVisual() {
     <>
       <WaveBackdrop idPrefix="step2" edgesOnly />
 
-      {/* Layer 1: background portrait photo (full photo, fills its frame) */}
-      <div className="absolute left-[99px] top-[55px] h-[233px] w-[187px] overflow-hidden rounded-lg">
-        <Image
-          src={callPortrait}
-          alt="Optimability team member smiling during an intro call"
-          fill
-          sizes="187px"
-          className="object-cover"
-        />
-      </div>
-
-      {/* Layer 2: call UI card */}
-      <div className="absolute left-[45px] top-[110px] h-[87px] w-[241px] overflow-hidden rounded-[4.893px] bg-white shadow-[1.223px_3.67px_7.34px_0px_rgba(0,0,0,0.28)]">
-        <div className="absolute left-2 top-2 flex size-7 items-center justify-center rounded-full bg-[#bdcd86]">
-          <span className="font-sans text-sm leading-[22px] tracking-[-1px] text-white">S</span>
-        </div>
-        <p className="absolute left-[42px] top-[14.5px] -translate-y-1/2 whitespace-nowrap font-sans text-[13px] leading-[22px] tracking-[-1px] text-black">
-          Optimability
-        </p>
-        <p className="absolute left-[42px] top-[30.5px] -translate-y-1/2 whitespace-nowrap font-sans text-[10px] leading-[22px] tracking-[-1px] text-black/60">
-          0:22
-        </p>
-        <div className="absolute left-[209px] top-[10px] flex size-6 items-center justify-center rounded-full bg-[#b12121]">
-          <CallEndIcon className="size-3" />
+      {/*
+        Photo + call card group. The three layers keep the exact same relative
+        offsets between them (matches Figma at every breakpoint) — only the
+        group's own position changes: centered as a unit below lg, pinned to
+        the fixed desktop coordinates at lg+.
+      */}
+      <div className="absolute left-1/2 top-1/2 h-[233px] w-[241px] -translate-x-1/2 -translate-y-1/2 lg:left-[45px] lg:top-[55px] lg:translate-x-0 lg:translate-y-0">
+        {/* Layer 1: background portrait photo (full photo, fills its frame) */}
+        <div className="absolute left-[54px] top-0 h-[233px] w-[187px] overflow-hidden rounded-lg">
+          <Image
+            src={callPortrait}
+            alt="Optimability team member smiling during an intro call"
+            fill
+            sizes="187px"
+            className="object-cover"
+          />
         </div>
 
-        {/* Audio waveform */}
-        <div className="absolute left-3 top-[60.5px] flex -translate-y-1/2 items-center gap-0.5">
-          {WAVEFORM_BARS.map((height, index) => (
-            <div
-              key={index}
-              className="w-[3px] rounded-full bg-[#d9d9d9]"
-              style={{ height }}
-            />
-          ))}
-        </div>
-      </div>
+        {/* Layer 2: call UI card */}
+        <div className="absolute left-0 top-[55px] h-[87px] w-[241px] overflow-hidden rounded-[4.893px] bg-white shadow-[1.223px_3.67px_7.34px_0px_rgba(0,0,0,0.28)]">
+          <div className="absolute left-2 top-2 flex size-7 items-center justify-center rounded-full bg-[#bdcd86]">
+            <span className="font-sans text-sm leading-[22px] tracking-[-1px] text-white">S</span>
+          </div>
+          <p className="absolute left-[42px] top-[14.5px] -translate-y-1/2 whitespace-nowrap font-sans text-[13px] leading-[22px] tracking-[-1px] text-black">
+            Optimability
+          </p>
+          <p className="absolute left-[42px] top-[30.5px] -translate-y-1/2 whitespace-nowrap font-sans text-[10px] leading-[22px] tracking-[-1px] text-black/60">
+            0:22
+          </p>
+          <div className="absolute left-[209px] top-[10px] flex size-6 items-center justify-center rounded-full bg-[#b12121]">
+            <CallEndIcon className="size-3" />
+          </div>
 
-      {/* Layer 3: transparent cutout of the same person, popping out over the call card */}
-      <div className="pointer-events-none absolute left-[99px] top-[55px] h-[233px] w-[187px] overflow-hidden rounded-lg">
-        <Image src={callPortraitCutout} alt="" aria-hidden fill sizes="187px" className="object-cover" />
+          {/* Audio waveform */}
+          <div className="absolute left-3 top-[60.5px] flex -translate-y-1/2 items-center gap-0.5">
+            {WAVEFORM_BARS.map((height, index) => (
+              <div
+                key={index}
+                className="w-[3px] rounded-full bg-[#d9d9d9]"
+                style={{ height }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Layer 3: transparent cutout of the same person, popping out over the call card */}
+        <div className="pointer-events-none absolute left-[54px] top-0 h-[233px] w-[187px] overflow-hidden rounded-lg">
+          <Image src={callPortraitCutout} alt="" aria-hidden fill sizes="187px" className="object-cover" />
+        </div>
       </div>
     </>
   );
