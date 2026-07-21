@@ -48,19 +48,19 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 w-full px-4 pt-5">
-      <nav className="mx-auto flex h-[4.5rem] w-full max-w-[65.375rem] items-center justify-between rounded-lg border-[0.5px] border-white/40 bg-[#1e3746] px-6 backdrop-blur-[6px]">
+    <header className="fixed inset-x-0 top-0 z-50 w-full px-4 pt-6">
+      <nav className="mx-auto flex h-[3.25rem] w-full max-w-[64.875rem] items-center justify-between rounded-full border-[0.5px] border-surface-muted/40 bg-[#1d3746] pl-6 pr-1.5 backdrop-blur-[6px]">
         {/* Logo + brand */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/optimability-logo.svg"
             alt="Optimability logo"
-            width={40}
-            height={40}
+            width={32}
+            height={32}
             priority
             unoptimized
           />
-          <span className="font-jakarta text-base font-semibold leading-6 tracking-[0.01em] text-white">
+          <span className="font-jakarta text-xs font-semibold leading-none tracking-[0.01em] text-white">
             Optimability
           </span>
         </Link>
@@ -81,7 +81,7 @@ export default function Navbar() {
 
         {/* CTA button — desktop only */}
         <div className="hidden lg:block">
-          <CtaButton label="Get Started" href="/#apply" />
+          <CtaButton label="Get Started" href="/#apply" size="nav" />
         </div>
 
         {/* Hamburger — mobile & tablet */}
@@ -90,7 +90,7 @@ export default function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
-          className="flex size-11 cursor-pointer items-center justify-center rounded-lg bg-white/10 text-white transition-colors hover:bg-white/20 lg:hidden"
+          className="flex size-11 cursor-pointer items-center justify-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/25 lg:hidden"
         >
           <MenuIcon open={open} />
         </button>

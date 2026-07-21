@@ -93,7 +93,7 @@ function AmbientBackdrop() {
 
 export default function Hero() {
   return (
-    <section className="relative flex w-full flex-col items-center px-4 pt-[11.25rem]">
+    <section className="relative flex w-full flex-col items-center px-4 pt-[7.25rem] lg:pt-[11.25rem]">
       <AmbientBackdrop />
 
       {/* Badge */}
