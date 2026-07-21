@@ -275,14 +275,14 @@ export default function ApplyForm({
                   type="button"
                   onClick={next}
                   disabled={!canContinue}
-                  className={`flex h-[2.375rem] w-[7.25rem] items-center justify-between rounded-lg bg-linear-to-br from-brand-deep to-brand-ocean pl-4 pr-1 transition-[opacity,background-image,background-color] duration-200 enabled:hover:bg-none enabled:hover:bg-brand-ocean md:h-12 md:w-[9rem] md:pl-5 md:pr-1.5 ${
+                  className={`flex h-[2.375rem] w-[7.25rem] items-center justify-between rounded-full bg-linear-to-br from-brand-deep to-brand-ocean pl-4 pr-1 transition-[opacity,background-image,background-color] duration-200 enabled:hover:bg-none enabled:hover:bg-brand-ocean md:h-12 md:w-[9rem] md:pl-5 md:pr-1.5 ${
                     canContinue ? "cursor-pointer" : "cursor-default opacity-50"
                   }`}
                 >
                   <span className="font-sans text-base tracking-[-1px] text-white md:text-lg">
                     {isLast ? "Submit" : "Next"}
                   </span>
-                  <span className="flex size-[1.875rem] items-center justify-center rounded-lg bg-white md:size-9">
+                  <span className="flex size-[1.875rem] items-center justify-center rounded-full bg-white md:size-9">
                     <ArrowRightIcon />
                   </span>
                 </button>
